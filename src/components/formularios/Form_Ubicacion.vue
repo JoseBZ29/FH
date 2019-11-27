@@ -1,45 +1,36 @@
 <template>
-    <v-container class="white">
-      <v-row align="center">
-        <v-col>
-          <form>
-            <v-container>
-              <v-row align="center">
-                <v-col class="d-flex" cols="12" sm="6">
-                  <v-select :items="paises" label="País"></v-select>
-                </v-col>
-                <v-col class="d-flex" cols="12" sm="6">
-                  <v-select :items="estados" label="Estado"></v-select>
-                </v-col>
-                <v-col class="d-flex" cols="12" sm="6">
-                  <v-select :items="cps" label="Ciudad"></v-select>
-                </v-col>
-                <v-col class="d-flex" cols="12" sm="6">
-                  <v-select :items="cps" label="Código Postal"></v-select>
-                </v-col>
-                <v-col class="d-flex" cols="12" sm="6">
-                  <v-select :items="cps" label="Colonia"></v-select>
-                </v-col>
-                <v-col class="d-flex" cols="12" sm="6">
-                  <v-select :items="cps" label="Calle"></v-select>
-                </v-col>
-              </v-row>
-            </v-container>
-            <!-------------Fecha de Nacimiento----------->
-          </form>
-        </v-col>
-        <v-col align="center" justify="center">
-          <v-img
-            src="https://picsum.photos/id/1005/5760/3840"
-            lazy-src="https://picsum.photos/id/1005/5760/3840"
-            class="black"
-            max-width="500"
-            max-height="300"
-          ></v-img>
-          <h2 class="text-center overline">Imagen de Perfil</h2>
-        </v-col>
-      </v-row>
-    </v-container>
+  <v-container class="white">
+    <v-row align="center">
+      <v-col>
+        <form>
+          <v-container>
+            <v-row align="center">
+              <v-col class="d-flex" cols="12" sm="6">
+                <v-select :items="paises" label="País"></v-select>
+              </v-col>
+              <v-col class="d-flex" cols="12" sm="6">
+                <v-select :items="estados" label="Estado"></v-select>
+              </v-col>
+              <v-col class="d-flex" cols="12" sm="6">
+                <v-select :items="cps" label="Ciudad"></v-select>
+              </v-col>
+              <v-col class="d-flex" cols="12" sm="6">
+                <v-select :items="cps" label="Código Postal"></v-select>
+              </v-col>
+              <v-col class="d-flex" cols="12" sm="6">
+                <v-select :items="cps" label="Colonia"></v-select>
+              </v-col>
+              <v-col class="d-flex" cols="12" sm="6">
+                <v-select :items="cps" label="Calle"></v-select>
+              </v-col>
+            </v-row>
+          </v-container>
+          <!-------------Fecha de Nacimiento----------->
+        </form>
+      </v-col>
+      
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -87,7 +78,15 @@ export default {
       return errors;
     }
   },
+  mounted() {
+    // At this point, the child GmapMap has been mounted, but
+    // its map has not been initialized.
+    // Therefore we need to write mapRef.$mapPromise.then(() => ...)
 
+    this.$refs.mapRef.$mapPromise.then(map => {
+      map.panTo({ lat: 1.38, lng: 103.8 });
+    });
+  },
   methods: {
     submit() {
       this.$v.$touch();
@@ -102,3 +101,10 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.vue-map-container {
+  height: 450px;
+  max-width: 992px;
+  width: 100%;
+}
+</style>
