@@ -5,106 +5,79 @@
         <form>
           <v-container>
             <v-row align="center">
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-select :items="paises" label="País"></v-select>
+              <v-col class="d-flex" cols="6" md="8">
+                <v-text-field v-model="cp" label="Código Postal"></v-text-field>
               </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-select :items="estados" label="Estado"></v-select>
+              <v-col class="d-flex" cols="6" md="4">
+                <v-btn @click="buscarUbicacion(cp)">Validar</v-btn>
               </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-select :items="cps" label="Ciudad"></v-select>
+            </v-row>
+            <v-row justify="center">
+              <v-col class="d-flex" cols="6" md="6">
+                <h5>{{estado}}</h5>
               </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-select :items="cps" label="Código Postal"></v-select>
-              </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-select :items="cps" label="Colonia"></v-select>
-              </v-col>
-              <v-col class="d-flex" cols="12" sm="6">
-                <v-select :items="cps" label="Calle"></v-select>
+              <v-col class="d-flex" cols="6" md="6">
+                <h5>{{municipio}}</h5>
               </v-col>
             </v-row>
           </v-container>
-          <!-------------Fecha de Nacimiento----------->
         </form>
       </v-col>
-      
+    </v-row>
+    <v-row>
+      <v-btn dark @click="siguiente(false)" style="margin-right:10px"
+        >Regresar</v-btn
+      >
+      <v-btn
+        dark
+        @click="agregarUbicacion(), siguiente(true)"
+        style="margin-right:10px"
+        >Siguiente</v-btn
+      >
     </v-row>
   </v-container>
 </template>
 
 <script>
-import { validationMixin } from "vuelidate";
-import { required, maxLength, email } from "vuelidate/lib/validators";
-
 export default {
-  mixins: [validationMixin],
-  validations: {
-    name: { required },
-    email: { required, email },
-    select: { required }
+  data() {
+    return {
+      estado: "",
+      municipio: "",
+      cp: ""
+    };
   },
-  data: () => ({
-    nombre: "",
-    apellidos: "",
-    estados: ["Querétaro", "Puebla", "Nuevo León", "Guerrero"]
-  }),
-  computed: {
-    checkboxErrors() {
-      const errors = [];
-      if (!this.$v.checkbox.$dirty) return errors;
-      !this.$v.checkbox.checked && errors.push("You must agree to continue!");
-      return errors;
-    },
-    selectErrors() {
-      const errors = [];
-      if (!this.$v.select.$dirty) return errors;
-      !this.$v.select.required && errors.push("Item is required");
-      return errors;
-    },
-    nameErrors() {
-      const errors = [];
-      if (!this.$v.name.$dirty) return errors;
-      !this.$v.name.maxLength &&
-        errors.push("Name must be at most 10 characters long");
-      !this.$v.name.required && errors.push("Name is required.");
-      return errors;
-    },
-    emailErrors() {
-      const errors = [];
-      if (!this.$v.email.$dirty) return errors;
-      !this.$v.email.email && errors.push("Must be valid e-mail");
-      !this.$v.email.required && errors.push("E-mail is required");
-      return errors;
-    }
-  },
-  mounted() {
-    // At this point, the child GmapMap has been mounted, but
-    // its map has not been initialized.
-    // Therefore we need to write mapRef.$mapPromise.then(() => ...)
 
-    this.$refs.mapRef.$mapPromise.then(map => {
-      map.panTo({ lat: 1.38, lng: 103.8 });
-    });
-  },
   methods: {
-    submit() {
-      this.$v.$touch();
+    agregarUbicacion() {
+      var ubicacion = {
+        estado: this.estado,
+        municipio: this.municipio,
+        cp: this.cp
+      };
+      this.$store.dispatch("agregarUbicacion", ubicacion);
     },
-    clear() {
-      this.$v.$reset();
-      this.name = "";
-      this.email = "";
-      this.select = null;
-      this.checkbox = false;
+    siguiente(x) {
+      this.$emit("siguiente", x);
+    },
+    buscarUbicacion(cp) {
+      this.axios
+        .post("/CP", {
+          params: {
+            cp: this.cp
+          }
+        })
+        .then(result => {
+          console.log("Si quedó tech boss alv");
+          this.estado=result.data.d_estado
+          this.municipio=result.data.D_mnpio
+
+        })
+        .catch(err => {
+          console.log(err.response);
+          console.log("Mal");
+        });
     }
   }
 };
 </script>
-<style lang="scss" scoped>
-.vue-map-container {
-  height: 450px;
-  max-width: 992px;
-  width: 100%;
-}
-</style>
