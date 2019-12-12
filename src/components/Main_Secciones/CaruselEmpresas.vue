@@ -1,5 +1,6 @@
 <template>
 <div>
+<<<<<<< HEAD
 <div>
 <v-container grid-list-xl >
               <v-layout justify-center="true">
@@ -45,6 +46,100 @@
       </v-carousel-item>
     </v-carousel>
 </div>
+=======
+  <v-carousel cycle="true" light="true" hide-delimiter-background="true" >
+    <v-carousel-item v-for="item in empresas"
+            :key="item" >
+      <v-sheet
+        color="white"
+        height="100%"
+        tile
+      >
+      <v-row justify="center">
+      <div style="color:black" class="display-3">Empresas mejor valoradas</div>
+      </v-row>
+        <v-container>
+          <v-row no-gutters>
+            <v-col
+            cols="12"
+            sm="3"
+            
+            >
+              <v-card
+              class="ma-3 pa-6"
+              color="white"
+              outlined
+              tile>
+              
+              <v-row style="margin-top:70px" justify="center">
+                
+                  <div style="color:black" class="display-3">{{item.titulo}}</div>
+                  <v-img :src="item.imagen" max-width="100" max-height="100" min-height="100" min-width="100"></v-img>
+                  <v-rating :value="item.valoracion"></v-rating>
+              </v-row>
+        </v-card>
+      </v-col>
+      <v-col
+            cols="12"
+            sm="3">
+              <v-card
+              class="ma-3 pa-6"
+              color="white"
+              outlined
+              tile>
+              <v-row style="margin-top:70px" justify="center">
+                  <div style="color:black" class="display-3">{{item.titulo2}}</div>
+                  <v-img :src="item.imagen2" max-width="150" max-height="100" min-height="100" min-width="150"></v-img>
+                  <v-rating :value="item.valoracion2"></v-rating>
+              </v-row>
+        </v-card>
+      </v-col>
+      <v-col
+            cols="12"
+            sm="3"
+            
+            >
+              <v-card
+              class="ma-3 pa-6"
+              color="white"
+              outlined
+              tile>
+              <v-row style="margin-top:70px" justify="center">
+                  <div style="color:black" class="display-3">{{item.titulo3}}</div>
+                  <v-img :src="item.imagen3" max-width="100" max-height="100" min-height="100" min-width="100"></v-img>
+                  <v-rating :value="item.valoracion3"></v-rating>
+              </v-row>
+        </v-card>
+      </v-col>
+      <v-col
+            cols="12"
+            sm="3"
+            >
+              <v-card
+              class="ma-3 pa-6"
+              color="white"
+              outlined
+              tile>
+              <v-row style="margin-top:70px" justify="center">
+                  <div style="color:black" class="display-3">{{item.titulo4}}</div>
+                  <v-img :src="item.imagen4" max-width="100" max-height="100" min-height="100" min-width="100"></v-img>
+                  <v-rating :value="item.valoracion4"></v-rating>
+              </v-row>
+        </v-card>
+      </v-col>
+      
+    </v-row>
+    
+
+    
+    </v-container>
+
+  
+      </v-sheet>
+    </v-carousel-item>
+  </v-carousel>
+            <v-row style="margin-top:20px"></v-row>
+>>>>>>> master
 </div>
 </template>
 

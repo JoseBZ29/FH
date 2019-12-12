@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <v-app>
 <div>
     <NavBar></NavBar>
@@ -10,7 +11,27 @@
     <Footer></Footer>
 </div>
 </v-app>
+=======
+  <v-app>
+    <div>
+      <Carusel></Carusel>
+      <br />
+      <Pasos></Pasos>
+      <EstrellasEmpresa></EstrellasEmpresa>
+      <CaruselEmpresas></CaruselEmpresas>
+      <Principal></Principal>
+      <Reclutaempresa></Reclutaempresa>
+      <br />
+      <br />
+      <br />
+      <br />
+     
+    </div>
+  </v-app>
+>>>>>>> master
 </template>
+
+
 
 <script>
 // @ is an alias to /src
@@ -33,4 +54,8 @@ export default {
     Reclutaempresa
   }
 };
+<<<<<<< HEAD
 </script>
+=======
+</script>
+>>>>>>> master
