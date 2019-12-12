@@ -31,7 +31,7 @@
                 href="#"
                 data-toggle="modal"
                 data-target="#modalIniciarSesion"
-                >Iniciar Sesión</a>
+                >Iniciar Sesón</a>
               >
             </li>
             <li class="nav-item" v-if="inicio_sesion !== true">
