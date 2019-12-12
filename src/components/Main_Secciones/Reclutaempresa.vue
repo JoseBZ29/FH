@@ -1,7 +1,7 @@
 <template>
 
-  <div style="height: 250px; justify: center;"><br>
-    <v-container ><br>
+  <div style="height: 250px; justify: center;">
+    <v-container >
       <v-row align="center" justify="center">
         <h1 style="font-family: 'Montserrat', sans-serif;" class="text-center">
           Registra tu empresa y recluta desde la comodidad de tu hogar u oficina.
@@ -13,6 +13,11 @@
         >
       </v-row>
     </v-container><br>
-      <v-divider  style="margin-left:250px;margin-right:250px"></v-divider>
   </div>
 </template>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+</style>
