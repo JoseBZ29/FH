@@ -13,7 +13,6 @@
 <script>
 import Navbar from "@/components/Main_Secciones/NavBar"
 
-
 export default {
   name: "app",
   data() {

@@ -1,12 +1,7 @@
 <template>
 
-<<<<<<< HEAD
-  <div style="height: 250px; justify: center;">
+  <div style="height: 250px; justify: center;" class="divo">
     <v-container >
-=======
-  <div style="height: 250px; justify: center;"><br><br>
-    <v-container ><br>
->>>>>>> master
       <v-row align="center" justify="center">
         <h1 style="font-family: 'Montserrat', sans-serif;" class="text-center">
           Registra tu empresa y recluta desde la comodidad de tu hogar u oficina.
@@ -21,6 +16,14 @@
   </div>
 </template>
 <style>
+@media only screen and (max-width: 768px) {
+.divo{
+  width: auto;
+  height: auto;
+   position: relative;
+
+}
+}
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 h1 {
   font-family: 'Montserrat', sans-serif;

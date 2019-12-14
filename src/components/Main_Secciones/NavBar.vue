@@ -31,21 +31,13 @@
                 href="#"
                 data-toggle="modal"
                 data-target="#modalIniciarSesion"
-<<<<<<< HEAD
-                >Iniciar Sesón</a>
-=======
                 >Iniciar Sesión</a
->>>>>>> master
               >
             </li>
             <li class="nav-item" v-if="inicio_sesion !== true">
               <a
                 class="nav-link js-scroll-trigger"
-<<<<<<< HEAD
-                style="color: width"
-=======
                 style="color: black"
->>>>>>> master
                 href="#"
                 data-toggle="modal"
                 data-target="#myModal"
@@ -68,11 +60,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <router-link
                   class="nav-item nav-link "
-<<<<<<< HEAD
-                  style="color: width"
-=======
                   style="color: black"
->>>>>>> master
                   v-for="menu in menus"
                   v-bind:key="menu.id"
                   :to="`${menu.page}`"
@@ -83,11 +71,7 @@
 
             <router-link
               class="nav-item nav-link js-scroll-trigger"
-<<<<<<< HEAD
-              style="color: width"
-=======
               style="color: black"
->>>>>>> master
               v-for="routes in links"
               v-bind:key="routes.id"
               :to="`${routes.page}`"
@@ -224,11 +208,7 @@ export default {
 </script>
 <style scoped>
 .navbar {
-<<<<<<< HEAD
-  background-color: rgba(0, 0, 0, 0.5);
-=======
   background-color: rgba(0, 0, 0, 0.05);
->>>>>>> master
 }
 
 

@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 <v-app>
 <div>
     <NavBar></NavBar>
@@ -7,31 +6,11 @@
     <Pasos></Pasos>
     <EstrellasEmpresa></EstrellasEmpresa><br>
     <CaruselEmpresas></CaruselEmpresas>
-    <Reclutaempresa></Reclutaempresa><br><hr>
+    <Reclutaempresa></Reclutaempresa><br><hr class="di">
     <Footer></Footer>
 </div>
 </v-app>
-=======
-  <v-app>
-    <div>
-      <Carusel></Carusel>
-      <br />
-      <Pasos></Pasos>
-      <EstrellasEmpresa></EstrellasEmpresa>
-      <CaruselEmpresas></CaruselEmpresas>
-      <Principal></Principal>
-      <Reclutaempresa></Reclutaempresa>
-      <br />
-      <br />
-      <br />
-      <br />
-     
-    </div>
-  </v-app>
->>>>>>> master
 </template>
-
-
 
 <script>
 // @ is an alias to /src
@@ -43,7 +22,7 @@ import NavBar from "@/components/Main_Secciones/NavBar.vue";
 import Pasos from "@/components/Main_Secciones/Pasos.vue";
 import CaruselEmpresas from "@/components/Main_Secciones/CaruselEmpresas.vue";
 export default {
-  name: "inicio",
+  name: "Principa",
   components: {
     CaruselEmpresas,
     Pasos,
@@ -54,8 +33,12 @@ export default {
     Reclutaempresa
   }
 };
-<<<<<<< HEAD
 </script>
-=======
-</script>
->>>>>>> master
+
+<style scoped>
+@media handheld, only screen and (max-width: 767px) {
+.di {
+display:none;
+}
+}
+</style>
